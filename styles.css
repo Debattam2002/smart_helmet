@@ -98,3 +98,17 @@ body{
     font-weight: 900;
     display: none;
 }
+
+i{
+    font-size: 150px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFF;
+}
+h1{
+    text-align: center;
+    font-size: 3em;
+}

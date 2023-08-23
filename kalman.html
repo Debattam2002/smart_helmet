@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+</head>
+<body>
+  <nav class="navbar sticky-top  navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><h3><img src="8.jpg" height="40px" width="60px"><b> SMART HELMET</b> </h3></a>
+     
+        <script>
+            var content = document.getElementsByTagName('body')[0];
+            var darkMode = document.getElementById('dark-change');
+            darkMode.addEventListener('click', function(){
+                darkMode.classList.toggle('active');
+                content.classList.toggle('night');
+            })
+        </script>
+     
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/index.html"><b>Home</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#gmap"><b>G-Map</b></a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="https://console.firebase.google.com/project/smart-ca98c/overview"><b>Firebase</b></a>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/signup.html"><b>Contact us</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/sign.html"><b>Sign Up</b></a>
+          </li>
+          
+  </nav>
+
+  <div class="py-5 container text-center">
+    <div class="py-5 container text-center">
+      <section class="gmap" id="gmap" style="background-image:url('gps.jpg') ; ">
+          <div class="max-width">
+            <h1><b>GOOGLE MAP</b></h1>
+            <h2 class="worktitle my-5" style="color:rgb(17, 14, 17); font-size:27px;" ></h2><span class="typing6" style="font-size: 35px;"></span></div>
+            <div class="location">
+             <p > Click on Exact Location Button to get your location</p>
+       <button class="btn btn-primary" onclick="getPreciseLocation()"> Precise Location </button> 
+       <p id="location"></p>
+       <p > Click on Exact Location Button to get your location from vehicle</p>
+       <button class="btn btn-info" onclick="getPrecise()"> Precise Location vehicle </button> 
+       <p id="location1"></p>
+      
+            </div>
+            <script>
+              var typed1 = new Typed(".typing6", {
+                strings: [ "GOOGLE-MAP"],
+                typeSpeed: 120,
+                backSpeed: 80,
+                loop: true
+            });
+          </script>
+              <div class="gmap-content my-5">
+                <div class="column-md">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14741.33355752801!2d88.4694441!3d22.5291807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1684822369934!5m2!1sen!2sin" width="600" height="900" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="py-5 container text-center">
+                  
+                <button class="btn btn-danger" onclick="calculateSpeed()">Show Speed</button>
+                <div id="speedDisplay"></div>
+                </div>
+          </div>
+        </div>
+       
+    <!-- <h1>kalman filter</h1>
+  <button class="btn btn-danger" onclick="calculateSpeed()">Show Speed</button>
+  <div id="speedDisplay"></div>
+  </div> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script>
+    // Initialize Firebase
+    var firebaseConfig = {
+      // Your Firebase configuration here
+      apiKey: "AIzaSyArA8F5_xr4HtOEt2vUM1fsEvkQyK4K-No",
+    authDomain: "final-test-5a881.firebaseapp.com",
+    databaseURL: "https://final-test-5a881-default-rtdb.firebaseio.com",
+    projectId: "final-test-5a881",
+    storageBucket: "final-test-5a881.appspot.com",
+    messagingSenderId: "347327255678",
+    appId: "1:347327255678:web:1525728c34f69cb59d742f",
+    measurementId: "G-4065VSYYZW"
+    };
+    firebase.initializeApp(firebaseConfig);
+    
+    function calculateSpeed() {
+      var database = firebase.database();
+      var accelerationRef = database.ref('acc');
+
+      accelerationRef.once('value')
+        .then(function(snapshot) {
+          var acceleration = snapshot.val();
+          var speed = Math.sqrt(2 * acceleration); // Assuming linear motion formula
+
+          // Display the speed
+          document.getElementById('speedDisplay').innerHTML = "Speed: " + speed.toFixed(2) + " m/s";
+        })
+        .catch(function(error) {
+          console.log('Error fetching acceleration:', error);
+        });
+    }
+  </script>
+  <script>
+    var x = document.getElementById("location");
+    function getPreciseLocation(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showExactPosition)
+        }else{
+            x.innerHTML = "Geolocation is not supported"
+        }
+    }
+    function showExactPosition(position){
+        x.innerHTML = "Latitude: "+position.coords.latitude+
+        " and Longitude: "+position.coords.longitude;
+    }
+
+ 
+  </script>
+  <script>
+    var y = document.getElementById("location1");
+    function getPrecise(){
+      alert("geolocation cannot be extracted due to the problem of billing account")
+      if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(showExactPos)
+    }else{
+        y.innerHTML = "Geolocation is not supported"
+    }
+      
+  
+    }
+    function showExactPos(position){
+      y.innerHTML = "Latitude: "+position.coords.latitude+
+      " and Longitude: "+position.coords.longitude;
+  }
+   
+  </script>
+  <footer>
+    <span></a>  <span class="far fa-copyright"><i><b>copyright -  Debattam Banerjee, Debanjan Chakraborty, Pratim Sen Sharma, Souvagya Ghosh 2023-2024</b></i></span> </span>
+</footer>
+</body>
+</html>

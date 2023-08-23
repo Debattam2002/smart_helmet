@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="tn.jpg" type="image/x-icon">
     <title>Smart Helmet</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
@@ -59,25 +60,183 @@
     }
   }
 
+  .debattam{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-left: 10px;
+    border-radius: 20px;
+  }
+  .debanjan{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-left: 10px;
+    border-radius: 20px;
+  }
+  .sou{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-left: 10px;
+    border-radius: 20px;
+  }
+  .pra{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-left:10px;
+    border-radius: 20px;
+  }
+  .card-title1{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-left: 20px;
+    color: aliceblue;
+  }
+  .card-title2{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-left: 20px;
+    color: aliceblue;
+  }
+  .card-title3{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-left: 20px;
+    color: aliceblue;
 
-</style>
-<body style="background-image:url('bubble.gif');  background-size:100%; ">
-    <div class="scroll-up-btn">
+  }
+  .card-title4{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-left: 20px;
+    color: aliceblue;
+
+  }
+  .loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #333333;
+    transition: opacity 0.75s, visibility 0.75s;
+  }
+  
+  .loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .loader::after {
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 15px solid #dddddd;
+    border-top-color: #009578;
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+  }
+  
+  @keyframes loading {
+    from {
+      transform: rotate(0turn);
+    }
+    to {
+      transform: rotate(1turn);
+    }
+  }
+  
+  .card1{
+    background-color: #333333;
+    border-radius: 15px;
+  }
+  .card2{
+    background-color: #333333;
+    border-radius: 15px;
+  }
+  .card3{
+    background-color: #333333;
+    border-radius: 15px;
+  }
+  .card4{
+    background-color: #333333;
+    border-radius: 15px;
+  }
+  
+  .card-text1{
+    color:azure;
+    margin-left: 20px;
+  }
+  .card-text2{
+    color:azure;
+    margin-left: 20px;
+  }
+  .card-text3{
+    color:azure;
+    margin-left: 20px;
+  }
+  .card-text4{
+    color:azure;
+    margin-left: 20px;
+  }
+  .button1{
+    margin-left: 100px;
+    padding-left: 100%;
+  }
+ 
+
+    </style>
+
+  
+
+<body class="background" style="background-image:url('gallery4.jfif');  background-size:100%; ">
+  <div class="loader"></div>
+  <script>
+  window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader");
+  
+    loader.classList.add("loader--hidden");
+  
+    //<!-- loader.addEventListener("transitionend", () => {
+    //  document.body.removeChild(loader);
+   // }); 
+  });
+</script>
+  
+  
+    <!-- <header>
+      <label  id="dark-change"></label>
+    </header> -->
+  <div class="scroll-up-btn">
         <i class="fas fa-angle-up"></i>
     </div>
     <nav class="navbar sticky-top  navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><h3><b>SMART HELMET</b></h3></a>
+          <a class="navbar-brand" href="#"><h3><img src="8.jpg" height="40px" width="60px"><b> SMART HELMET</b> </h3></a>
+          <a href="/sign.html" class="btn btn-warning" id="button1" ><i>Sign Up</i></a>
+          <a href="/loginwg.html" class="btn btn-warning" id="button1" ><i>Log In</i></a>
+         
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+         
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/index"><b>Home</b></a>
+                <a class="nav-link active" aria-current="page" href="#home"><b>Home</b></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#gmap"><b>G-Map</b></a>
+                <a class="nav-link active" aria-current="page" href="/kalman.html"><b>G-Map</b></a>
               </li>
              
               <li class="nav-item">
@@ -93,20 +252,31 @@
                 <a class="nav-link active" aria-current="page" href="#mentor"><b>Mentor</b></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/signup.html"><b>Sign up</b></a>
+                <a class="nav-link active" aria-current="page" href="/signup.html"><b>Contact us</b></a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/sign.html"><b>Sign Up</b></a>
+              </li>
+
               
       </nav>
 
       <div class="alert alert-warning alert-dismissible fade show" role="alert" id="alert">
-        <strong>Please Sign up !!!</strong> 
-        <a href="/signup.html" class="btn btn-warning"><i>Signup</i></a>
+        <strong>Please give your important feedback !!!</strong> 
+        <a href="/signup.html" class="btn btn-warning"><i>Contact us</i></a>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
 
-      <script>
-        var delay_popup=5000; setTimeout("document.getElementById('alert').style.display='block'",delay_popup)
-      </script>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert">
+        <strong>Please Sign up now  !!! To Enjoy the Amazing feature of our website</strong> 
+        <a href="/sign.html" class="btn btn-warning"><i>Sign Up</i></a>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      
+         
+     
+      
+      
     <!-- home section start -->
     <section class="home" id="home">
         <div class="max-width">
@@ -125,44 +295,31 @@
                       <li><a class="dropdown-item" href="#"><h1><b>Overspeed Control</b></h1></a></li>
                     </ul>
                   </div>
-                <a href="#member">View us</a>
+      <a href="#member">View us</a> 
             </div>
         </div>
     </section>
 
-    <!-- about section start -->
-    <div class="py-5 container text-center">
-        <section class="gmap" id="gmap" style="background-color: aqua;">
-            <div class="max-width">
-              <h2 class="gmaptitle my-5" style="color:rgb(17, 14, 17)">Google Map</h2>
-              <div class="location">
-                <p style="color:red;">
-                  latitude : <span id="latitude"></span> &deg; 
-                  <br>
-                  longitude : <span id="longitude"></span> &deg;
-                  <br>
-                </p>
-              </div>
-                <div class="gmap-content">
-                  <div class="column-md">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d117914.6846420615!2d88.22279901872248!3d22.54789423622369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x3a027f54c750fd0d%3A0xae850ecffe67e4cd!2sAnkurhati%20Check%20Post%2C%20Kamrangu%2C%20Andul%2C%20Howrah%2C%20West%20Bengal!3m2!1d22.605733999999998!2d88.24520199999999!4m5!1s0x3a027a6debfee4f9%3A0x663ed9bd2228e65!2sBehala%20Chowrasta%2C%20Diamond%20Harbour%20Road%2C%20Behala%20Chowrasta%2C%20Bata%20Colony%2C%20Paschim%20Barisha%2C%20Kolkata%2C%20West%20Bengal!3m2!1d22.486940999999998!2d88.313366!5e0!3m2!1sbn!2sin!4v1678471679689!5m2!1sbn!2sin" width="300" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                 
-            </div>
-          </div>
-        </section> 
-      </div>
-    
+  
 
     <!-- work section start -->
    
         <div class="py-5 container text-center">
-            <section class="work" id="work" style="background-color: rgb(253, 11, 184);">
+            <section class="work" id="work" style="background-image:url('work1.jpg');">
                 <div class="max-width">
-                  <h2 class="worktitle my-5" style="color:rgb(17, 13, 17)">Working</h2>
+                  <h1 style="color: aliceblue;"><b>WORKING</b></h1>
                     <div class="gmap-content">
                       <div class="column-md" >
+                        <script>
+                        var typed = new Typed(".typing5", {
+                          strings: [ "WORKING"],
+                          typeSpeed: 120,
+                          backSpeed: 80,
+                          loop: true
+                      });
+                    </script>
                      
-              <iframe width="300" height="500" src="https://www.youtube.com/embed/tfJVCia8ics" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe width="300" height="500" src="work.mp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                       </div>
                     </div>
                   </div>
@@ -178,52 +335,65 @@
     <section class="member" id="member">
         <div class="max-width">
             <div class="py-5 container text-center">
-            <h2 class="membertitle" style="color:rgb(251, 13, 247)">About Member</h2>
-           
+              <h1 style="color: rgb(255, 252, 252);"><b>ABOUT MEMBER</b></h1>
+            <script>
+              var typed1 = new Typed(".typing2", {
+                strings: [ "ABOUT MEMBER"],
+                typeSpeed: 120,
+                backSpeed: 80,
+                loop: true
+            });
+          </script>
+          
                 <div class="row">
-                    <div class="col-sm-6 my-2 mb-3 mb-sm-0">
-                      <div class="card">
-                        <div class="card-body">
-                            <img src="deba.jpeg" height="150px" width="150px">
-                          <h5 class="card-title"><b>DEBATTAM BANERJEE</b></h5>
-                          <p class="card-text">Bachelor Of Technology in Electronics and Communication Engineering ,2024.</p>
-                          <a href="//wa.me/919062293136" class="btn btn-success"><i>CONTACT</i></a>
+                    <div class="container col-sm-4 my-2 mb-2 mb-sm-0 "> 
+                      <div class="card1">
+                        <div class="card-body1">
+                            <img src="deba.jpeg" class="debattam my-3"  height="150px" width="150px" >
+                          <h5 class="card-title1"><b>DEBATTAM BANERJEE</b></h5>
+                          <p class="card-text1">Bachelor Of Technology in Electronics and Communication Engineering ,2024.</p>
+                          <a href="//wa.me/919062293136" class="btn btn-success  mx-2"><i>WHATSAPP</i></a>
+                          <a href="mailto:debattambanerjee@gmail.com" class="btn btn-danger"><i>EMAIL</i></a>
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm-6 my-2">
-                      <div class="card">
-                        <div class="card-body">
-                            <img src="deban.jpeg" height="150px" width="150px">
-                          <h5 class="card-title"><b>DEBANJAN CHAKRABORTY</b></h5>
-                          <p class="card-text">Bachelor Of Technology in Electronics and Communication Engineering ,2024.</p>
-                          <a href="//wa.me/917603047115" class="btn btn-success"><i>CONTACT</i></a>
+                    <div class=" container col-sm-4 my-2">
+                      <div class="card2">
+                        <div class="card-body2">
+                            <img src="deban.jpeg" class="debanjan my-3" height="150px" width="150px">
+                          <h5 class="card-title2"><b>DEBANJAN CHAKRABORTY</b></h5>
+                          <p class="card-text2">Bachelor Of Technology in Electronics and Communication Engineering ,2024.</p>
+                          <a href="//wa.me/917603047115" class="btn btn-success  mx-2"><i>WHATSAPP</i></a>
+                          <a href="mailto:debanjan.clg@gmail.com" class="btn btn-danger"><i>EMAIL</i></a>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-sm-6 my-2 ">
-                      <div class="card">
-                        <div class="card-body">
-                            <img src="sou.jpeg" height="150px" width="150px">
-                          <h5 class="card-title"><b>SOUVAGYA GHOSH</b></h5>
-                          <p class="card-text">Bachelor Of Technology in Electronics and Communication Engineering ,2024.</p>
-                          <a href="//wa.me/919477768250" class="btn btn-success"><i>CONTACT</i></a>
+                    <div class="container col-sm-4 my-2 mx-10 ">
+                      <div class="card3">
+                        <div class="card-body3">
+                            <img src="sou.jpeg"class="sou my-3" height="150px" width="150px">
+                          <h5 class="card-title3"><b>SOUVAGYA GHOSH</b></h5>
+                          <p class="card-text3">Bachelor Of Technology in Electronics and Communication Engineering ,2024.</p>
+                          <a href="//wa.me/919477768250" class="btn btn-success  mx-2"><i>WHATSAPP</i></a>
+                          <a href="mailto:souvagyaghosh11@gmail.com" class="btn btn-danger"><i>EMAIL</i></a>
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm-6 my-2">
-                      <div class="card">
-                        <div class="card-body">
-                            <img src="pra.jpg" height="150px" width="150px">
-                          <h5 class="card-title"><b>PRATIM SEN SHARMA</b></h5>
-                          <p class="card-text">Bachelor Of Technology in Electronics and Communication Engineering ,2024.</p>
-                          <a href="//wa.me/917439506293" class="btn btn-success"><i>CONTACT</i></a>
+                    <div class="container col-sm-4 my-2">
+                      <div class="card4">
+                        <div class="card-body4">
+                            <img src="pra.jpg" class="pra  my-3" height="150px" width="150px">
+                          <h5 class="card-title4"><b>PRATIM SEN SHARMA</b></h5>
+                          <p class="card-text4">Bachelor Of Technology in Electronics and Communication Engineering ,2024.</p>
+                          <a href="//wa.me/917439506293" class="btn btn-success mx-2"><i>WHATSAPP</i></a>
+                          <a href="mailto:pratimsensharma63@gmail.com" class="btn btn-danger"><i>EMAIL</i></a>
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
         
     </div>
 </div>
@@ -232,8 +402,11 @@
     <section class="mentor" id="mentor">
         <div class="card text-center">
           <div class="card-header">
-            <h4>MENTOR</h4>
+            <h4>Mentor</h4>
+           
+          
           </div>
+         
           
             <div class="card-body">
               <img src="gar.jpeg" height="250px" width="250px">
@@ -244,11 +417,145 @@
           </div>
            
         </section>
+
+        <div style="width: 60px; height: 60px; position: fixed; right: 10px; bottom: 100px;">
+          <a href="https://chat.whatsapp.com/HUSK5GNT9rjKWgpdvnPerw"><img src="whats.png" width="60px" height="60px"></a>
+   </div>
+   <div style="width: 60px; height: 60px; position: fixed; right: 10px; bottom: 170px;">
+      <a href="https://t.me/+QY0M2H4cT29jNzI1"><img src="tele.png" width="60px" height="60px"></a>
+</div>
          
     <!-- footer section start -->
     <footer>
-        <span>@copyright -  Debattam Banerjee, Debanjan Chakraborty, Pratim Sen Sharma, Souvagya Ghosh 2023-2024</a> | <span class="far fa-copyright"></span> </span>
+        <span></a>  <span class="far fa-copyright"><i><b>copyright -  Debattam Banerjee, Debanjan Chakraborty, Pratim Sen Sharma, Souvagya Ghosh 2023-2024</b></i></span> </span>
     </footer>
+    <script>
+      // Firebase configuration
+const firebasConfig = {
+  apiKey: "AIzaSyArA8F5_xr4HtOEt2vUM1fsEvkQyK4K-No",
+  authDomain: "final-test-5a881.firebaseapp.com",
+  databaseURL: "https://final-test-5a881-default-rtdb.firebaseio.com",
+  projectId: "final-test-5a881",
+  storageBucket: "final-test-5a881.appspot.com",
+  messagingSenderId: "347327255678",
+  appId: "1:347327255678:web:1525728c34f69cb59d742f",
+  measurementId: "G-4065VSYYZW"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebasConfig);
+
+// Reference to the alcohol level node in the database
+const alcoholLevelRef = firebase.database().ref('alc');
+
+// Threshold level for the alcohol
+const thresholdLevel = 0.08;
+
+// Listen for changes in alcohol level
+alcoholLevelRef.on('value', snapshot => {
+  const alcoholLevel = snapshot.val();
+
+  if (alcoholLevel > thresholdLevel) {
+    // Display an alert indicating high alcohol level
+    alert('Warning: High alcohol level detected!');
+  }
+});
+
+    </script>
+    <script>
+      // Initialize Firebase
+      var firebaseConfig = {
+        // Your Firebase configuration here
+        apiKey: "AIzaSyArA8F5_xr4HtOEt2vUM1fsEvkQyK4K-No",
+      authDomain: "final-test-5a881.firebaseapp.com",
+      databaseURL: "https://final-test-5a881-default-rtdb.firebaseio.com",
+      projectId: "final-test-5a881",
+      storageBucket: "final-test-5a881.appspot.com",
+      messagingSenderId: "347327255678",
+      appId: "1:347327255678:web:1525728c34f69cb59d742f",
+      measurementId: "G-4065VSYYZW"
+      };
+      firebase.initializeApp(firebaseConfig);
+      
+      function calculateSpeed() {
+        var database = firebase.database();
+        var accelerationRef = database.ref('acc');
+  
+        accelerationRef.once('value')
+          .then(function(snapshot) {
+            var acceleration = snapshot.val();
+            var speed = Math.sqrt(2 * acceleration); // Assuming linear motion formula
+  
+            // Display the speed
+            document.getElementById('speedDisplay').innerHTML = "Speed: " + speed.toFixed(2) + " m/s";
+          })
+          .catch(function(error) {
+            console.log('Error fetching acceleration:', error);
+          });
+      }
+    </script>
+
+    <script>
+      var x = document.getElementById("location");
+      function getPreciseLocation(){
+          if(navigator.geolocation){
+              navigator.geolocation.getCurrentPosition(showExactPosition)
+          }else{
+              x.innerHTML = "Geolocation is not supported"
+          }
+      }
+      function showExactPosition(position){
+          x.innerHTML = "Latitude: "+position.coords.latitude+
+          " and Longitude: "+position.coords.longitude;
+      }
+
+   
+    </script>
+    <script>
+      // Get the button and element
+// Get the button and element
+// Get the button and element
+// Get the button and element
+const button = document.getElementById('button1');
+;
+
+// Array of content and colors
+const contentArray = ['Sign up', 'Logged In', 'Logged In', 'Logged In'];
+const colorArray = ['yellow', 'red', 'red','red'];
+
+// Function to update the content and color
+function updateContentAndColor() {
+  // Get the current index values from local storage or default to 0
+  let contentIndex = parseInt(localStorage.getItem('contentIndex')) || 0;
+  let colorIndex = parseInt(localStorage.getItem('colorIndex')) || 0;
+
+  // Change the innerHTML of the element
+  button.innerHTML = contentArray[contentIndex];
+
+  // Change the backgroundColor of the element
+  button.style.backgroundColor = colorArray[colorIndex];
+
+  // Update the counter variables
+  contentIndex = (contentIndex + 1) % contentArray.length;
+  colorIndex = (colorIndex + 1) % colorArray.length;
+
+  // Store the updated index values in local storage
+  localStorage.setItem('contentIndex', contentIndex);
+  localStorage.setItem('colorIndex', colorIndex);
+}
+
+// Add a click event listener to the button
+button.addEventListener('click', function() {
+  // Invoke the function to update the content and color
+  updateContentAndColor();
+});
+
+// Invoke the function when the page loads
+window.addEventListener('load', function() {
+  updateContentAndColor();
+});
+
+    </script>
     <script class="col-md-12" src="//code.tidio.co/38koa209hnxs87d5iupgdylfqmtygqom.js" async></script>
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

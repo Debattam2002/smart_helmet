@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plot Latitude and Longitude</title>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <button onclick="plotGraph()">Plot Graph</button>
+    <div id="graph"></div>
+
+    <script>
+      // Initialize Firebase
+const firebaseConfig = {
+  // Your Firebase configuration
+  apiKey: "AIzaSyArA8F5_xr4HtOEt2vUM1fsEvkQyK4K-No",
+  authDomain: "final-test-5a881.firebaseapp.com",
+  databaseURL: "https://final-test-5a881-default-rtdb.firebaseio.com",
+  projectId: "final-test-5a881",
+  storageBucket: "final-test-5a881.appspot.com",
+  messagingSenderId: "347327255678",
+  appId: "1:347327255678:web:1525728c34f69cb59d742f",
+  measurementId: "G-4065VSYYZW"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+function plotGraph() {
+  const database = firebase.database();
+  const ref = database.ref('gps');
+
+  ref.once('value', gotData, errData);
+}
+
+function gotData(data) {
+  const locations = data.val();
+
+  // Extract latitude and longitude from the locations data
+  const latitudes = Object.values(locations).map(location => location.latitude);
+  const longitudes = Object.values(locations).map(location => location.longitude);
+
+  // Plot the graph using a library like Chart.js
+  const graphElement = document.getElementById('graph');
+
+  // Clear any existing graph
+  while (graphElement.firstChild) {
+      graphElement.removeChild(graphElement.firstChild);
+  }
+
+  // Create a canvas element to hold the graph
+  const canvas = document.createElement('canvas');
+  canvas.width = 400;
+  canvas.height = 400;
+  graphElement.appendChild(canvas);
+
+  // Plot the graph
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = 'rgb(255, 0, 0)';
+  
+  for (let i = 0; i < latitudes.length; i++) {
+      const x = (longitudes[i] + 180) * (canvas.width / 360);
+      const y = (90 - latitudes[i]) * (canvas.height / 180);
+      ctx.fillRect(x, y, 2, 2);
+  }
+}
+
+function errData(err) {
+  console.log('Error:', err);
+}
+
+    </script>
+</body>
+</html>
